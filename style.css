@@ -1,0 +1,90 @@
+html {
+    font-family: Arial;
+}
+
+main {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.indicators {
+    user-select: none;
+    background: black;
+    width: auto;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5px;
+    padding: 5px;
+}
+
+.indicators>.indicator {
+    background-color: rgb(27, 27, 27);
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    filter: brightness(15%);
+    color: black;
+}
+
+.active {
+    filter: brightness(100%) !important;
+}
+
+.active-blink {
+    animation: 1.5s active-blink-anim steps(2, start) infinite;
+}
+
+.indicator[idx="0"],
+.indicator[idx="1"],
+.indicator[idx="2"] {
+    background-color: #0080ff;
+    font-size: 55px;
+}
+
+.indicator[idx="3"] {
+    background-color: #ffffff;
+    font-size: 25px;
+}
+
+.indicator[idx="4"] {
+    background-color: #ff0000;
+    font-size: 25px;
+}
+
+.indicator[idx="5"] {
+    background-color: #ffff00;
+    font-size: 25px;
+}
+
+.control-panel {
+    display: absolute;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+
+.checkboxes {
+    gap: 25px;
+    display: flex;
+}
+
+.checkboxes>p:not(:first-child) {
+    margin-left: auto;
+}
+
+.checkboxes>p>label>span {
+    font-size: 20px !important;
+}
+
+@keyframes active-blink-anim {
+    from {
+        filter: brightness(200%);
+    }
+}

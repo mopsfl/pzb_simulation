@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PZB 90 Simulation</title>
+
+    <link rel="stylesheet" href="./dist/css/style.css">
+    <script type="module" src="./dist/js/index.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.1.0/dist/css/materialize.min.css">
+</head>
+
+<body>
+    <main>
+        <div class="indicators">
+            <div class="indicator" idx="0" name="type_u">55</div>
+            <div class="indicator" idx="1" name="type_m">70</div>
+            <div class="indicator" idx="2" name="type_o">85</div>
+            <div class="indicator" idx="3" name="befehl40">Befehl 40</div>
+            <div class="indicator" idx="4" name="500hz">500 Hz</div>
+            <div class="indicator" idx="5" name="1000hz">1000 Hz</div>
+        </div>
+    </main>
+    <div class="control-panel">
+        <h5>Leuchtmelder</h5>
+        <div class="checkboxes">
+            <p>
+                <label>
+                    <input type="checkbox" class="filled-in" idx="0" autocomplete="off" />
+                    <span>55</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input type="checkbox" class="filled-in" idx="1" autocomplete="off" />
+                    <span>70</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input type="checkbox" class="filled-in" idx="2" autocomplete="off" />
+                    <span>85</span>
+                </label>
+            </p>
+        </div>
+        <div class="checkboxes">
+            <p>
+                <label>
+                    <input type="checkbox" class="filled-in" idx="3" autocomplete="off" />
+                    <span>Befehl 40</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input type="checkbox" class="filled-in" idx="4" autocomplete="off" />
+                    <span>500 Hz</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input type="checkbox" class="filled-in" idx="5" autocomplete="off" />
+                    <span>1000 Hz</span>
+                </label>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
