@@ -8,64 +8,98 @@
 
     <link rel="stylesheet" href="./dist/css/style.css">
     <script type="module" src="./dist/js/index.js"></script>
+    <link rel="shortcut icon" href="pzb85.png" type="image/x-icon">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.1.0/dist/css/materialize.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.1.1/dist/js/materialize.min.js"></script>
 </head>
 
 <body>
-    <main>
-        <div class="indicators">
-            <div class="indicator" idx="0" name="type_u">55</div>
-            <div class="indicator" idx="1" name="type_m">70</div>
-            <div class="indicator" idx="2" name="type_o">85</div>
-            <div class="indicator" idx="3" name="befehl40">Befehl 40</div>
-            <div class="indicator" idx="4" name="500hz">500 Hz</div>
-            <div class="indicator" idx="5" name="1000hz">1000 Hz</div>
+    <main class="container">
+        <header>
+            <span class="header-title">PZB 90 - Simulation</span>
+            <span class="align_mright header-miscinfo">
+                <span>by mopsfl <span style="user-select: none;">&bull;</span> 1.0.0</span><br>
+            </span>
+        </header>
+        <div class="control-panel">
+            <h5>Leuchtmelder</h5>
+            <div class="checkboxes">
+                <p>
+                    <label>
+                        <input type="checkbox" class="filled-in" idx="0" autocomplete="off" />
+                        <span>55</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" class="filled-in" idx="1" autocomplete="off" />
+                        <span>70</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" class="filled-in" idx="2" autocomplete="off" />
+                        <span>85</span>
+                    </label>
+                </p>
+            </div>
+            <div class="checkboxes">
+                <p>
+                    <label>
+                        <input type="checkbox" class="filled-in" idx="3" autocomplete="off" />
+                        <span>Befehl 40</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" class="filled-in" idx="4" autocomplete="off" />
+                        <span>500 Hz</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" class="filled-in" idx="5" autocomplete="off" />
+                        <span>1000 Hz</span>
+                    </label>
+                </p>
+            </div>
         </div>
+
+        <div class="indicators-container">
+            <div class="indicators">
+                <div class="indicator" idx="0" name="type_u">55</div>
+                <div class="indicator" idx="1" name="type_m">70</div>
+                <div class="indicator" idx="2" name="type_o">85</div>
+                <div class="indicator" idx="3" name="befehl40">Befehl 40</div>
+                <div class="indicator" idx="4" name="500hz">500 Hz</div>
+                <div class="indicator" idx="5" name="1000hz">1000 Hz</div>
+            </div>
+        </div>
+
+        <div class="sim-distval">
+            <label>0 m</label>
+            <label>2000 m</label>
+        </div>
+        <div class="sim">
+            <div class="train"></div>
+        </div>
+
+        <div class="sim-controls">
+            <div class="switch">
+                <label>Halten<input type="checkbox"><span class="lever"></span>Fahren</label>
+            </div>
+            <p class="range-field sim-train-speed-input">
+                <label>Geschwindigkeit: <label id="sim-train-speed-display-value" class="statval">0</label> km/h</label>
+                <input type="range" id="sim-train-speed" min="0" max="160" value="0" autocomplete="off" />
+            </p>
+            <div class="sim-stats">
+                <label>Zwangsbremsungen: <label id="sim-stat-zwangse" class="statval">0</label></label>
+                <label>Gefahrene Distanz: <label id="sim-stat-zwangse" class="statval">0</label> <span class="bold">m</span></label>
+            </div>
+        </div>
+
     </main>
-    <div class="control-panel">
-        <h5>Leuchtmelder</h5>
-        <div class="checkboxes">
-            <p>
-                <label>
-                    <input type="checkbox" class="filled-in" idx="0" autocomplete="off" />
-                    <span>55</span>
-                </label>
-            </p>
-            <p>
-                <label>
-                    <input type="checkbox" class="filled-in" idx="1" autocomplete="off" />
-                    <span>70</span>
-                </label>
-            </p>
-            <p>
-                <label>
-                    <input type="checkbox" class="filled-in" idx="2" autocomplete="off" />
-                    <span>85</span>
-                </label>
-            </p>
-        </div>
-        <div class="checkboxes">
-            <p>
-                <label>
-                    <input type="checkbox" class="filled-in" idx="3" autocomplete="off" />
-                    <span>Befehl 40</span>
-                </label>
-            </p>
-            <p>
-                <label>
-                    <input type="checkbox" class="filled-in" idx="4" autocomplete="off" />
-                    <span>500 Hz</span>
-                </label>
-            </p>
-            <p>
-                <label>
-                    <input type="checkbox" class="filled-in" idx="5" autocomplete="off" />
-                    <span>1000 Hz</span>
-                </label>
-            </p>
-        </div>
-    </div>
 </body>
 
 </html>

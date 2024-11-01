@@ -1,4 +1,5 @@
 import $ from "jquery";
+import jQuery from "jquery";
 
 // -------------------------------- \\
 
@@ -34,6 +35,7 @@ $(".indicator").each((i, ind) => {
 })
 
 window["indicators"] = indicators
+M.Range.init($(".range-field>input"))
 
 // -------------------------------- \\
 

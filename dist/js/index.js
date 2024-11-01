@@ -6398,6 +6398,7 @@ var indicators = /* @__PURE__ */ new Map();
   });
 });
 window["indicators"] = indicators;
+M.Range.init((0, import_jquery.default)(".range-field>input"));
 /*! Bundled license information:
 
 jquery/dist/jquery.js:
