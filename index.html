@@ -10,6 +10,11 @@
     <script type="module" src="./dist/js/index.js"></script>
     <link rel="shortcut icon" href="pzb85.png" type="image/x-icon">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.1.0/dist/css/materialize.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@2.1.1/dist/js/materialize.min.js"></script>
 </head>
@@ -79,15 +84,15 @@
 
         <div class="sim-distval">
             <label>0 m</label>
-            <label>2000 m</label>
+            <label>1500 m</label>
         </div>
-        <div class="sim">
-            <div class="train"></div>
+        <div class="track">
+            <div class="train tooltipped" data-tooltip="Zug"></div>
         </div>
 
         <div class="sim-controls">
             <div class="switch">
-                <label>Halten<input type="checkbox"><span class="lever"></span>Fahren</label>
+                <label>Halten<input type="checkbox" id="drive_state" autocomplete="off"><span class="lever"></span>Fahren</label>
             </div>
             <p class="range-field sim-train-speed-input">
                 <label>Geschwindigkeit: <label id="sim-train-speed-display-value" class="statval">0</label> km/h</label>
@@ -95,7 +100,7 @@
             </p>
             <div class="sim-stats">
                 <label>Zwangsbremsungen: <label id="sim-stat-zwangse" class="statval">0</label></label>
-                <label>Gefahrene Distanz: <label id="sim-stat-zwangse" class="statval">0</label> <span class="bold">m</span></label>
+                <label>Gefahrene Distanz: <label id="sim-stat-distancedriven" class="statval">0</label> <span class="bold">m</span></label>
             </div>
         </div>
 

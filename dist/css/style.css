@@ -1,6 +1,6 @@
 /* style.css */
-html {
-  font-family: Arial;
+* {
+  font-family: "Nunito Sans", sans-serif;
 }
 main {
   display: grid !important;
@@ -12,6 +12,9 @@ header {
   margin: 15px 0 20px 0;
   border-bottom: solid 1px gray;
   padding: 5px;
+}
+.fis-text {
+  font-family: "Doto", sans-serif;
 }
 .header-title {
   font-size: 25px;
@@ -45,29 +48,15 @@ header {
   width: min-content;
   margin-bottom: 150px;
 }
-.sim {
+.indicator {
+  font-family: Arial !important;
+}
+.track {
   margin-top: 25px;
-  width: 100%;
+  width: 1500px;
   height: 3px;
   background: gray;
   padding-right: 3px;
-}
-.sim::before {
-  content: "";
-  position: absolute;
-  width: 3px;
-  height: 22px;
-  background: gray;
-  transform: translate(-3px, -10px);
-}
-.sim::after {
-  content: "";
-  position: absolute;
-  width: 3px;
-  height: 22px;
-  right: calc(100% - 80vw);
-  background: gray;
-  transform: translateY(-24px);
 }
 .sim-distval {
   width: 100%;
@@ -77,9 +66,9 @@ header {
 .sim-distval:last-child {
   float: right;
 }
-.sim > .train {
+.track > .train {
   background: rgb(32, 99, 76);
-  width: 25px;
+  width: 5px;
   height: 15px;
   transform: translateY(-15px);
   margin-left: 0;

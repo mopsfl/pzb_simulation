@@ -1,5 +1,15 @@
 import $ from "jquery";
 import jQuery from "jquery";
+import { Track } from "./modules/Track";
+import { Train } from "./modules/Train";
+
+// -------------------------------- \\
+
+const track = new Track().init(),
+    train = new Train().init()
+
+M.Range.init($(".range-field>input"))
+M.Tooltip.init($(".tooltipped"))
 
 // -------------------------------- \\
 
@@ -35,7 +45,8 @@ $(".indicator").each((i, ind) => {
 })
 
 window["indicators"] = indicators
-M.Range.init($(".range-field>input"))
+window["train"] = train
+window["track"] = track
 
 // -------------------------------- \\
 
@@ -46,3 +57,5 @@ export interface Indicator {
     active: boolean,
     toggle: ((state?: boolean, blink?: boolean) => void)
 }
+
+export { track, train }
