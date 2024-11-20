@@ -10,11 +10,13 @@ export class Train {
     drive_switch = $("#drive_state")
     speed_slider = $("#sim-train-speed")
     stat_distance_driven = $("#sim-stat-distancedriven")
+    stat_train_speed = $("#sim-train-speed-display-value")
 
     track = track.track
     drive_state = 0
     position = 0
     speed = 0
+    maxSpeed = 160
 
     speedPixelPerSec = 0
     pixelPerFrame = 0
@@ -26,6 +28,10 @@ export class Train {
     startTime = null
     timeTaken = 0
 
+    keyDown = false
+    currentKeyDown = null
+    keyDownIncrement = 0
+
     init() {
         this.drive_switch.val(this.drive_state)
         this.drive_switch.on("change", () => {
@@ -33,19 +39,47 @@ export class Train {
             this.drive_switch.val(this.drive_state)
         })
 
-        this.speed_slider.on("change", () => {
-            this.speed = parseInt(this.speed_slider.val().toString())
+        this.speed_slider.on("change", () => { this.set_speed(this.get_speed()) })
+
+        $(document).on("keyup", (e) => {
+            if (this.keyDown && this.keyDownIncrement !== 0 && this.currentKeyDown === e.key) {
+                this.keyDown = false
+                this.keyDownIncrement = 0
+                this.currentKeyDown = null
+                console.log(e.key, this.keyDownIncrement);
+            }
+        })
+
+        $(document).on("keydown", (e) => {
+            if ((e.key === "d" || e.key === "ArrowRight" || e.key === "w" || e.key === "ArrowUp") && this.speed < 160) {
+                this.keyDown = true
+                this.keyDownIncrement = 1
+                this.currentKeyDown = e.key
+                this.set_speed(clamp(this.get_speed() + this.keyDownIncrement, 0, this.maxSpeed))
+
+                console.log(e.key, this.keyDown, this.currentKeyDown, this.keyDownIncrement);
+            }
+            if ((e.key === "a" || e.key === "ArrowLeft" || e.key === "s" || e.key === "ArrowDown") && this.speed > 0) {
+                this.keyDown = true
+                this.keyDownIncrement = -1
+                this.currentKeyDown = e.key
+                this.set_speed(clamp(this.get_speed() + this.keyDownIncrement, 0, this.maxSpeed))
+
+                console.log(e.key, this.keyDown, this.currentKeyDown, this.keyDownIncrement);
+            }
+
         })
 
         this.update()
+
         // -------------------------------- \\
         console.log("train initialized", this);
         return this
     }
 
     update = () => {
-        const currentTime = performance.now();
-        const deltaTime = currentTime - this.lastFrameTime;
+        const currentTime = performance.now()
+        const deltaTime = currentTime - this.lastFrameTime
 
         if (deltaTime >= this.frameTime) {
             this.speedPixelPerSec = this.speed * (1000 / 3600)
@@ -62,7 +96,7 @@ export class Train {
                 this.set_position(this.position)
                 this.stat_distance_driven.text(Math.round(this.position))
 
-                console.log(`pos: ${this.position.toFixed(2)}, speed (px/s): ${this.speedPixelPerSec.toFixed(2)}, time: ${this.timeTaken.toFixed(2)} s`)
+                console.log(this.position, this.speedPixelPerSec, this.timeTaken)
             }
 
             if (this.position >= 1500) {
@@ -81,5 +115,15 @@ export class Train {
         this.train.css("margin-left", `${this.position}px`)
 
         return this.position
+    }
+
+    set_speed(val: number) {
+        this.speed_slider.val(parseInt(val.toString()))
+        this.stat_train_speed.text(val)
+        this.speed = val
+    }
+
+    get_speed() {
+        return parseInt(this.speed_slider.val().toString())
     }
 }

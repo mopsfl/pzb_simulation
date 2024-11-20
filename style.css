@@ -68,6 +68,11 @@ header {
     padding-right: 3px;
 }
 
+
+.sim-train-speed-input {
+    min-width: 350px;
+}
+
 .sim-distval {
     width: 100%;
     display: flex;
